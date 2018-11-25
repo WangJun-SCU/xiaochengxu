@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/page1/page1",
     "pages/page2/page2",
+    "pages/page1/page1",
     "pages/page3/page3",
     "pages/index/index",
     "pages/logs/logs",
@@ -10,7 +10,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "时代见证者证",
     "navigationBarTextStyle": "black"
   }
 }

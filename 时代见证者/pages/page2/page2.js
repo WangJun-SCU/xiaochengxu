@@ -1,11 +1,16 @@
 // pages/page2/page2.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    text: "亲爱的朋友，感谢您与新华社一同见证改革开放的征途，见证祖国日新月异的发展，感谢您始终不忘初心，砥砺前行，与神州大地共同成长。新华社将为您颁发“时代见证者荣誉证书”，点击下方按钮立即申请！",
+    title: "时代见证者荣誉证书",
+    content: '改革开放四十年，国社记录四十载\n新华社为您颁发"时代见证者荣誉证书"\n点击下方按钮立即领取！',
+    imgSrc: app.globalData.host + "imgs/icon.jpeg",
+    imgSrc2: app.globalData.host + "imgs/icon_make.png",
+    imgSrc3: app.globalData.host + "imgs/bottom1.png",
   },
 
   /**
