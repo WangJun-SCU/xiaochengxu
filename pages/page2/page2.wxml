@@ -1,0 +1,3 @@
+<!--pages/page2/page2.wxml-->
+<text>{{ text }}</text>
+<button type="primary" bindtap='apply'>点击申请</button>
