@@ -4,7 +4,6 @@ App({
    * 小程序初始化完成时调用（全局只触发一次）
    */
   onLaunch: function (obj) {
-    console.log(obj);
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -41,7 +40,6 @@ App({
    * 小程序启动，或从后台进入前台显示时
    */
   onShow: function (obj) {
-    console.log(obj);
   },
   /**
    * 小程序从前台进入后台时

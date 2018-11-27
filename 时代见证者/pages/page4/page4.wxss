@@ -1,1 +1,4 @@
 /* pages/page4/page4.wxss */
+page{
+  height: 100%;
+}

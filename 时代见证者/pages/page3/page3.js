@@ -1,4 +1,5 @@
 // pages/page3/page3.js
+const app = getApp()
 Page({
 
   /**
@@ -9,7 +10,10 @@ Page({
     date: "",
     img: "",
     load: false,
-    make: "开始制作"
+    make: "开始制作",
+    backgroundSrc: app.globalData.host + "imgs/background1.png",
+    startDate:"1890-01-01",
+    endDate:new Date()
   },
 
   /**

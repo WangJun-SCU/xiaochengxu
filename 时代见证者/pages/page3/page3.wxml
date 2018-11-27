@@ -1,11 +1,21 @@
 <!--pages/page3/page3.wxml-->
-<input placeholder="姓名"></input>
-<view>日期选择器</view>
-<picker mode="date" value="{{date}}" bindchange="bindDateChange">
-  <view class="picker">
-    当前选择: {{date}}
+<view>
+  <image src="{{backgroundSrc}}" style="position:absolute;top:20px;left:0px;z-index:1;width:100%;" mode='aspectFit'></image>
+  <view style='text-align:center;position:absolute;top:0px;left:0px;z-index:2;width:100%;margin-top:50px'>
+    <view class='input_control'>
+      <input class='input' placeholder="输入姓名"></input>
+    </view>
+    <view class='input_control'>
+      <picker start="startDate" end="{{endDate}}" mode="date" value="{{date}}" bindchange="bindDateChange">
+        <input class='input' placeholder="选择生日" value="{{date}}"></input>
+      </picker>
+    </view>
+    <view>
+      <button type='default' size='mini' plain="true" bindtap='selectImg' style='width:60%;'>选择照片</button>
+    </view>
+    <image mode='aspectFill' style='margin-top:20px;width:50%;' src="{{img}}"></image>
   </view>
-</picker>
-<button type='primary' bindtap='selectImg'>选择照片</button>
-<image src="{{img}}"></image>
-<button type='primary' loading='{{load}}' bindtap='changeLoad'>{{make}}</button>
+</view>
+<view style='position:absolute;bottom:50px;right:0px;text-align:center;width:100%;'>
+  <button style='width:80%;' type='default' loading='{{load}}' bindtap='changeLoad'>{{make}}</button>
+</view>

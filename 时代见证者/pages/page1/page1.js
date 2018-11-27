@@ -6,11 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+    con:false,
     imgs: [
       {
-        url: app.globalData.host + "imgs/timg.gif"
+        url: app.globalData.host + "videos/index.gif"
       }
-    ]
+    ],
+    videoSrc: app.globalData.host + "videos/index2.mp4"
   },
 
   /**
@@ -21,7 +23,7 @@ Page({
       wx.navigateTo({
         url: '../page2/page2',
       })
-    },3000)
+    },6000)
   },
 
   /**
