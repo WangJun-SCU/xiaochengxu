@@ -1,4 +1,8 @@
 /* pages/page4/page4.wxss */
 page{
   height: 100%;
+  width: 95%;
+  overflow-x:hidden;
+  background-color: gray;
+  padding: 10px 10px 10px 10px;
 }
