@@ -12,18 +12,24 @@ Page({
         url: app.globalData.host + "videos/index.gif"
       }
     ],
-    videoSrc: app.globalData.host + "videos/index2.mp4"
+    videoSrc: "http://pixwlubu5.bkt.clouddn.com/%E7%89%87%E5%A4%B4.mp4"
   },
 
+  end:function(){
+    wx.redirectTo({
+      url: '../page2/page2',
+    })
+  },
+  touchVideo:function(){
+    wx.redirectTo({
+      url: '../page2/page2',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    setTimeout(function(){
-      wx.navigateTo({
-        url: '../page2/page2',
-      })
-    },6000)
+    
   },
 
   /**
@@ -44,7 +50,9 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    wx.redirectTo({
+      url: '../page2/page2'
+    })
   },
 
   /**

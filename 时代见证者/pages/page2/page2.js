@@ -22,7 +22,7 @@ Page({
     })
   },
   apply: function() {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../page3/page3',
     })
   }

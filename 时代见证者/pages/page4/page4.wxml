@@ -1,19 +1,20 @@
 <!--pages/page4/page4.wxml-->
-<view style="height:80%;background-color:white;" >
-  <canvas style="width:100%; height:100%;" canvas-id="canvasImage">
+<view style="height:100%;width:100%;background-color:white;position:absolute;left:0px;top:0px;" >
+  <canvas style="width:100%; height:100%;background-color:white;" canvas-id="canvasImage">
   </canvas>
 </view>
-<view style='height:20%;text-align:center;padding:20px 0 0 0'>
-  <view style='display:inline-block'>
-    <icon type="cancel" size="60" />
-    <view>
-      <text style="font-size:16px;">重新制作</text>
-    </view>
-  </view>
-  <view style='display:inline-block;margin-left:40px;'>
-    <icon type="download" size="60" />
-    <view>
-      <text style="font-size:16px;">保存并分享</text>
-    </view>
-  </view>
-</view>
+
+<cover-view style='text-align:center;width:100%;position:absolute;right:0px;bottom:0px;margin-bottom:15px'> 
+  <cover-view style='display:inline-block' bindtap='back'>
+    <cover-image src="../../resources/image/cion_remake.png" style='width:30px;height:30px;margin: 5px auto;'></cover-image>
+    <cover-view>
+      重新制作
+    </cover-view>
+  </cover-view>
+  <cover-view style='display:inline-block;margin-left:40px;' bindtap='saveImg'>
+    <cover-image src="../../resources/image/icon_download.png" style='width:30px;height:30px;margin: 5px auto;'></cover-image>
+    <cover-view>
+      保存并分享
+    </cover-view>
+  </cover-view>
+</cover-view>

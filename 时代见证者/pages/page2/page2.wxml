@@ -1,5 +1,5 @@
 <!--pages/page2/page2.wxml-->
-<view style='text-align:center;'>
+<view style='text-align:center;position:absolute;left:0px;top:30px;width:100%;z-index:3;'>
   <text style="color:rgb(208,190,143);font-size:24px;font-weight:bold;">{{ title }}</text>
   <view style='text-align:center;'>
     <image style="width:150px;height:150px;" mode="aspectFit" src="{{imgSrc}}"></image>
@@ -11,5 +11,5 @@
     <text style='float:left;margin-top:10px;color:rgb(19,20,77);'>点击立即申请证书</text>
     <image src="{{imgSrc2}}" style="width:50px;height:50px;float;"></image>
   </view>
-  <image style="width:100%;position:absolute;right:0px;bottom:0px;" src="{{imgSrc3}}"></image>
 </view>
+<image style="width:100%;position:absolute;right:0px;bottom:0px;z-index:1;" src="{{imgSrc3}}"></image>
