@@ -157,7 +157,7 @@ Page({
       {
         "year": "1997",
         "image": "https://i.loli.net/2018/12/02/5c02d137182f8.jpg",
-        "conent": "1997年香港回归，东方之珠将更加闪耀，一国两制伟大构想成为现实。"
+        "conent": "1997年香港回归，东方之珠更加闪耀，一国两制伟大构想成为现实。"
       },
       {
         "year": "1998",
@@ -197,12 +197,12 @@ Page({
       {
         "year": "2004",
         "image": "https://i.loli.net/2018/12/02/5c02d24be83a5.jpg",
-        "conent": "2004年刘翔雅典夺金，实现中国男子田径奖牌零的突破。"
+        "conent": "2004年刘翔雅典夺金，实现奥运会中国男子田径奖牌零的突破。"
       },
       {
         "year": "2005",
         "image": "https://i.loli.net/2018/12/02/5c02d24ba5124.jpg",
-        "conent": "2005年超级女生引爆平民选秀，还记得那个想唱就唱的2005年吗？"
+        "conent": "2005年超级女生引爆平民选秀，还记得那个想唱就唱的夏天吗？"
       },
       {
         "year": "2006",
@@ -217,7 +217,7 @@ Page({
       {
         "year": "2008",
         "image": "https://i.loli.net/2018/12/02/5c02d249658b0.jpg",
-        "conent": "2008年，北京奥运会点燃了全体华人的热情，中华民族精诚团结，是它成为史上最成功的奥运会之一。"
+        "conent": "2008年，北京奥运会点燃了全体华人的热情，中华民族精诚团结，使它成为史上最成功的奥运会之一。"
       },
       {
         "year": "2010",
@@ -227,12 +227,12 @@ Page({
       {
         "year": "2012",
         "image": "https://i.loli.net/2018/12/02/5c02d364921e5.jpg",
-        "conent": "2012年蛟龙号创造了下潜7062米的中国载人深潜纪录，标志着中国海底载人科学研究和资源勘探能力达到国际领先水平。"
+        "conent": "2012年蛟龙号创造下潜7062米的中国载人深潜纪录，标志着中国海底载人科学研究和资源勘探能力达到国际领先水平。"
       },
       {
         "year": "2013",
         "image": "https://i.loli.net/2018/12/02/5c02d35fce718.jpg",
-        "conent": "2013年“神舟十号”载人飞船搭载着聂海胜、张晓光、王亚平三名宇航员在太空与“天宫一号”成功实现了自动和手动对接，为我国探月工程开启新征程。"
+        "conent": "2013年“神舟十号”载人飞船与“天宫一号”成功实现自动和手动对接，为我国探月工程开启新征程。"
       },
       {
         "year": "2015",
@@ -242,17 +242,17 @@ Page({
       {
         "year": "2016",
         "image": "https://i.loli.net/2018/12/02/5c02d3931a873.jpg",
-        "conent": "2016年我国成果举办G20杭州峰会，中国又一次让世界眼前一亮。"
+        "conent": "2016年我国成功举办G20杭州峰会，中国又一次惊艳世界。"
       },
       {
         "year": "2016",
         "image": "https://i.loli.net/2018/12/02/5c02d37ca29eb.jpg",
-        "conent": "2016年中国“天眼” FAST历时22年终建成，被誉名为“世界上最大的望远镜”。"
+        "conent": "2016年中国“天眼” FAST历时22年终建成，被誉为“世界上最大的望远镜”。"
       },
       {
         "year": "2017",
         "image": "https://i.loli.net/2018/12/02/5c02d385dbefb.jpg",
-        "conent": "2017年中国首艘自主建造的国产航母下水，中国航母，驶向深蓝！"
+        "conent": "2017年中国首艘自主建造的航母下水，中国航母，驶向深蓝！"
       },
       {
         "year": "2017",
@@ -304,6 +304,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    if(options.share == 'share'){
+      wx.redirectTo({
+        url: '../page1/page1'
+      })
+      return;
+    }
     wx.showLoading({
       title: 'loading...',
     })
@@ -312,9 +318,7 @@ Page({
       name: options.name,
       date: options.date
     })
-    console.log(this.data.date);
     var length = this.data.imgs.length
-    console.log("length:" + length);
     for(var i = 0; i < length; i++){
       var item = this.data.imgs[i];
       var year = parseInt(item.year);
@@ -326,11 +330,8 @@ Page({
         break;
       }
       if(year > parseInt(this.data.date.substring(0,4))){
-        console.log(year);
-        console.log(parseInt(this.data.date.substring(0, 4)));
         //生成随机数
         var index = parseInt(Math.random() * (length - i) + i, 10);
-        console.log(index);
         this.setData({
           imgSrc: this.data.imgs[index].image,
           text: this.data.imgs[index].conent
@@ -353,17 +354,17 @@ Page({
         //画头像
         context.save()
         context.beginPath()
-        var long = height * 0.22;
+        var long = height * 0.18;
         context.arc((width * 0.5), (height * 0.35), (long * 0.5), 0, 2 * Math.PI)
         //剪裁成圆形
         context.clip()
         context.drawImage(avatatSrv, (width * 0.5 - long * 0.5), (height * 0.35 - long * 0.5), long, long);
         context.restore()
         context.draw()
-        //画字
-        context.drawImage(that.data.textSrc, (width * 0.1), (height * 0.47), (width * 0.8), height * 0.15);
-        context.setFontSize(18)
-        //绘制字符换行处理
+        //画荣誉证书4个字
+        context.drawImage(that.data.textSrc, (width * 0.1), (height * 0.47), (width * 0.8), height * 0.12);
+        context.setFontSize(16)
+        //画图片描述，字符换行处理
         var chr = that.data.text.split(""); //这个方法是将一个字符串分割成字符串数组
         var temp = "";
         var row = [];
@@ -380,7 +381,7 @@ Page({
         row.push(temp);
         for (var b = 0; b < row.length; b++) {
           context.setFillStyle('dimgrey')
-          context.fillText(row[b], width * 0.1, height * 0.65 + b * 30);
+          context.fillText(row[b], width * 0.1, height * 0.65 + b * 20);
         }
         var text = "感谢 " + that.data.name + " 的见证！";
         var textWidth = context.measureText(text).width;
@@ -392,18 +393,15 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '时代见证者荣誉证书',
+      path: 'pages/page4/page4?share=share'
+    }
   },
 
   /**
@@ -413,33 +411,6 @@ Page({
     wx.redirectTo({
       url: '../page2/page2'
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
   }
+
 })

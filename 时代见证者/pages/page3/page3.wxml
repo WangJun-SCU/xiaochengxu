@@ -9,7 +9,7 @@
     </view>
     <view class='input_control'>
       <picker start="startDate" end="{{endDate}}" mode="date" value="{{date}}" bindchange="bindDateChange">
-        <input class='input' placeholder="选择生日" value="{{date}}"></input>
+        <input class='input' disabled placeholder="选择生日" value="{{date}}"></input>
       </picker>
     </view>
     <view>
