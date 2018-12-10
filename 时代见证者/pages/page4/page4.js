@@ -290,7 +290,7 @@ Page({
     //画二维码
     context.drawImage(this.data.headSrc, (width * 0.3), (height * 0.92), (height * 0.055 / 2 * 7), (height * 0.055));
     context.draw(true);
-    
+
     setTimeout(() => {
       wx.canvasToTempFilePath({
         x: 0,
@@ -317,7 +317,7 @@ Page({
     }, 200);
   },
   //重新制作
-  back: function() {
+  back: function() { 
     wx.redirectTo({
       url: "../page3/page3"
     })
