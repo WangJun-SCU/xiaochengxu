@@ -13,8 +13,10 @@ Page({
     text: "1978年十一届三中全会召开，改革开放的伟大征程由此起步。",
     textSrc: "../../resources/image/text_ryzs.png",
     tagSrc: "../../resources/image/tag.gif",
+    headSrc: "../../resources/image/qrcode1.png",
     name: "",
     date: "",
+    doubleClick: false,
     imgs: [
       {
         "year": "1978",
@@ -268,7 +270,27 @@ Page({
   },
 
   saveImg: function() {
+    if (!this.data.doubleClick){
+      this.data.doubleClick = true;
+      this.animation1
+        .translateX(-width * 0.2)
+        .step()
+      this.setData({
+        animation1: this.animation1.export()
+      })
 
+      this.animation2
+        .translateX(width * 0.2)
+        .step()
+      this.setData({
+        animation2: this.animation2.export()
+      })
+    }
+    var context = wx.createCanvasContext('canvasImage');
+    //画二维码
+    context.drawImage(this.data.headSrc, (width * 0.3), (height * 0.92), (height * 0.055 / 2 * 7), (height * 0.055));
+    context.draw(true);
+    
     setTimeout(() => {
       wx.canvasToTempFilePath({
         x: 0,
@@ -304,6 +326,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    this.animation1 = wx.createAnimation()
+    this.animation2 = wx.createAnimation()
     if(options.share == 'share'){
       wx.redirectTo({
         url: '../page1/page1'
@@ -386,8 +410,15 @@ Page({
         var text = "感谢 " + that.data.name + " 的见证！";
         var textWidth = context.measureText(text).width;
         context.fillText(text, (width - textWidth) / 2, height * 0.82);
-        //画红章
+        // //画红章
         context.drawImage(that.data.tagSrc, (width * 0.5), (height * 0.7), (height * 0.2), height * 0.2);
+        //画小程序二维码
+        //context.drawImage(that.data.headSrc, (width * 0.1), (height * 0.88), (height * 0.1), (height * 0.1));
+        //context.drawImage(that.data.headSrc, (width * 0.4), (height * 0.88), (height * 0.1), (height * 0.1));
+        //context.drawImage(that.data.headSrc, (width * 0.7), (height * 0.88), (height * 0.1), (height * 0.1));
+        //长二维码
+        //context.drawImage(that.data.headSrc, (width * 0.08), (height * 0.9), (height * 0.07 / 2 * 7), (height * 0.07));
+        //context.drawImage(that.data.headSrc, (width * 0.45), (height * 0.9), (height * 0.07 / 2 * 7), (height * 0.07));
         context.draw(true)
       }
     })

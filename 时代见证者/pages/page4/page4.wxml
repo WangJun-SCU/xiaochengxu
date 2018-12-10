@@ -5,15 +5,15 @@
 </view>
 
 <cover-view style='text-align:center;width:100%;position:absolute;right:0px;bottom:0px;margin-bottom:15px'> 
-  <cover-view style='display:inline-block' bindtap='back'>
-    <cover-image src="../../resources/image/cion_remake.png" style='width:30px;height:30px;margin: 5px auto;'></cover-image>
-    <cover-view>
+  <cover-view style='display:inline-block' bindtap='back' animation="{{animation1}}">
+    <cover-image src="../../resources/image/cion_remake.png" style='width:20px;height:20px;margin: 5px auto;'></cover-image>
+    <cover-view style='font-size:14px;'>
       重新制作
     </cover-view>
   </cover-view>
-  <cover-view style='display:inline-block;margin-left:40px;' bindtap='saveImg'>
-    <cover-image src="../../resources/image/icon_download.png" style='width:30px;height:30px;margin: 5px auto;'></cover-image>
-    <cover-view>
+  <cover-view style='display:inline-block;margin-left:40px;' bindtap='saveImg' animation="{{animation2}}">
+    <cover-image src="../../resources/image/icon_download.png" style='width:20px;height:20px;margin: 5px auto;'></cover-image>
+    <cover-view style='font-size:14px;'>
       保存并分享
     </cover-view>
   </cover-view>
