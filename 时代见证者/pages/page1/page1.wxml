@@ -1,4 +1,4 @@
 <!--pages/page1.wxml-->
-<!-- <image style="width: 100%; height: 100%; background-color: #eeeeee;" src="{{imgs[0].url}}"></image> -->
-<video autoplay="true" controls="false" style='height:100%;width:100%;' objectFit="fill" src="{{videoSrc}}" bindwaiting="wait" bindplay="play" bindended="end" bindprogress="process"></video>
+<image style="width: 100%; height: 100%; background-color: #eeeeee;" src="{{imgs[1].url}}" bindload="imgLoaded"></image>
+<!-- <video autoplay="true" controls="false" style='height:100%;width:100%;' objectFit="fill" src="{{videoSrc}}" bindwaiting="wait" bindplay="play" bindended="end" bindprogress="process"></video> -->
 <cover-view style="position:absolute;top:0;left:0;width:100%;height:100%;" bindtap='touchVideo'></cover-view>
