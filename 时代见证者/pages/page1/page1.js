@@ -7,11 +7,13 @@ Page({
    */
   data: {
     con: false,
+    goNext: false,
     imgs: [{
         url: app.globalData.host + "videos/index.gif"
       },
       {
-        url: "https://i.loli.net/2018/12/11/5c0f643f051dc.gif"
+        //url: "https://i.loli.net/2018/12/11/5c0f643f051dc.gif"
+        url: "http://pixwlubu5.bkt.clouddn.com/%E8%A7%81%E8%AF%81%E5%8A%A8%E5%9B%BE.gif"
       }
     ],
     imgSrc: "../../resources/image/index.png"
@@ -24,6 +26,7 @@ Page({
     })
   },
   touchVideo: function() {
+    this.data.goNext = true;
     wx.redirectTo({
       url: '../page2/page2',
     })
@@ -65,10 +68,13 @@ Page({
 
   imgLoaded: function() {
     wx.hideLoading();
+    let that = this;
     setTimeout(function() {
-      wx.redirectTo({
-        url: '../page2/page2'
-      })
-    }, 5000)
+      if (!that.data.goNext) {
+        wx.redirectTo({
+          url: '../page2/page2'
+        })
+      }
+    }, 2300)
   }
 })

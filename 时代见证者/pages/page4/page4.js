@@ -11,7 +11,7 @@ Page({
   data: {
     imgSrc: "",
     text: "1978年十一届三中全会召开，改革开放的伟大征程由此起步。",
-    textSrc: "../../resources/image/text_ryzs.png",
+    textSrc: "../../resources/image/text_ryzs3.png",
     tagSrc: "../../resources/image/tag.gif",
     headSrc: "../../resources/image/qrcode1.png",
     name: "",
@@ -288,7 +288,7 @@ Page({
     }
     var context = wx.createCanvasContext('canvasImage');
     //画二维码
-    context.drawImage(this.data.headSrc, (width * 0.3), (height * 0.92), (height * 0.055 / 2 * 7), (height * 0.055));
+    context.drawImage(this.data.headSrc, (width * 0.3), (height * 0.92), (height * 0.06 / 2 * 7), (height * 0.06));
     context.draw(true);
 
     setTimeout(() => {
@@ -297,8 +297,8 @@ Page({
         y: 0,
         width: width,
         height: height,
-        destWidth: width * 2,
-        destHeight: height * 2,
+        destWidth: width * 5,
+        destHeight: height * 5,
         canvasId: 'canvasImage',
         fileType: 'jpg',
         success(res) {
@@ -385,8 +385,19 @@ Page({
         context.drawImage(avatatSrv, (width * 0.5 - long * 0.5), (height * 0.35 - long * 0.5), long, long);
         context.restore()
         context.draw()
-        //画荣誉证书4个字
-        context.drawImage(that.data.textSrc, (width * 0.1), (height * 0.47), (width * 0.8), height * 0.12);
+        wx.getImageInfo({
+          src: that.data.textSrc,
+          success: function (file1) {
+            console.log("rongyu");
+            console.log(file1);
+            var widthText = file1.width;
+            var heightText = file1.height;
+            //画荣誉证书4个字
+            var context = wx.createCanvasContext('canvasImage');
+            context.drawImage(that.data.textSrc, ((width - height * 0.12 / heightText * widthText) / 2), (height * 0.47), (height * 0.12 / heightText * widthText), height * 0.12);
+            context.draw(true);
+          }
+        });
         context.setFontSize(16)
         //画图片描述，字符换行处理
         var chr = that.data.text.split(""); //这个方法是将一个字符串分割成字符串数组
